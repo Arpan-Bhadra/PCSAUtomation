@@ -1,0 +1,51 @@
+//SQL Script
+Create pcsdb Data Base in mysql
+use pcsdb;
+-- Creating Table:: Employee
+create table Employee(
+	empId int auto_increment,
+    	FirstName varchar(30) not null,
+	LastName varchar(30) not null,
+	UserId varchar(30) not null,
+	Password varchar(20) not null,
+	Role varchar(3) not null,
+	Gender varchar(10) not null,
+     	Active varchar(10) not null,
+     	primary key(empId)
+);
+-- Creating Table:: empjob
+create table empjob(
+	ejId int auto_increment,
+    	employeeId int not null,
+	jobId int not null,
+	recruited varchar(20) not null,
+     	primary key(ejId)
+);
+-- Creating Table:: empskill
+create table empskill(
+	esId int auto_increment,
+    	employeeId int not null,
+	skillId int not null,
+	expYear date not null,
+     	primary key(esId)
+);
+-- Creating Table:: job
+create table job(
+	jobId int auto_increment,
+    	jobTitle varchar(10) not null,
+	jobDescription varchar(30) not null,
+	companyName varchar(30) not null,
+	location varchar(20) not null,
+	keySkill varchar(10) not null,
+	salary decimal(8,2) not null,
+     	Active varchar(10) not null,
+     	primary key(jobId)
+);
+-- Creating Table:: skill
+create table skill(
+	skillId int auto_increment,
+    	skillName varchar(20) not null,
+	skillDescription varchar(30) not null,
+	Active varchar(10) not null,
+     	primary key(skillId)
+);
