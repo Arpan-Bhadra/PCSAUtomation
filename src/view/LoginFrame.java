@@ -2,27 +2,57 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
+
 import javax.swing.*;
+
+import controller.EmployeeController;
+import model.Employee;
 
 public class LoginFrame extends JFrame{
 	Container container;
-	JLabel lUserId, lPassword;
-	JTextField tUserId,tPassword;
+	JLabel lUserId, lPassword, lMessage;
+	JTextField tUserId;
+	JPasswordField tPassword;
 	JButton bLogin, bRegister;
 	JCheckBox cShowPassword;
-	public LoginFrame() {
+	EmployeeController empController=null;
+	public LoginFrame() throws ClassNotFoundException, SQLException {
 		container=getContentPane();
 		lUserId=new JLabel("USERNAME");
 		lPassword=new JLabel("PASSWORD");
+		lMessage=new JLabel();
 		tUserId=new JTextField();
-		tPassword=new JTextField();
+		tPassword=new JPasswordField();
 		bLogin=new JButton("LOGIN");
+		empController=new EmployeeController();
 		//Event handling for Login button
 		bLogin.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				String userId,password;
+				userId=tUserId.getText();
+				password=new String(tPassword.getPassword());
+				//System.out.println(userId+" "+password);
+				Employee emp=new Employee();
+				emp=empController.checkLogin(userId, password);
+				if(emp==null) {
+					lMessage.setText("You are not authorized user! Retry or Register!");
+				}
+				else {
+					if(emp.getActive().equals("Active")) {
+						if(emp.getRole().equals("HRA")) {
+							new HRWindow();
+						}
+						else if(emp.getRole().equals("PME")) {
+							new PMWindow();
+						}
+						else {
+							new EmpWindow(emp);
+						}
+					}
+				}
 				
 			}
 			
@@ -52,6 +82,7 @@ public class LoginFrame extends JFrame{
 		container.setLayout(null);
 	}
 	public void setLocationAndSize() {
+		lMessage.setBounds(50, 80, 300, 30);
 		lUserId.setBounds(50, 150, 100, 30);
 		lPassword.setBounds(50, 250, 100, 30);
 		tUserId.setBounds(250, 150, 150, 30);
@@ -68,6 +99,7 @@ public class LoginFrame extends JFrame{
 		container.add(cShowPassword);
 		container.add(bLogin);
 		container.add(bRegister);
+		container.add(lMessage);
 	}
 	
 }

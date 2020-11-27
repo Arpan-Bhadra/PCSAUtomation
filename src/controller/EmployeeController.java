@@ -2,6 +2,7 @@ package controller;
 
 import java.io.*;
 import java.sql.*;
+import java.util.Iterator;
 import java.util.List;
 
 import dao.IEmployeeDao;
@@ -13,6 +14,10 @@ public class EmployeeController {
 	IEmployeeDao empDao=null;
 	public EmployeeController() throws ClassNotFoundException, SQLException{
 		empDao=new EmployeeDao();
+	}
+	public Employee checkLogin(String userId,String password) {
+		Employee emp=empDao.checkLogin(userId, password);
+		return emp;
 	}
 	
 	public void addEmployee() {
@@ -39,7 +44,7 @@ public class EmployeeController {
 				emp.setActive("Deactive");
 			}
 			//Calling dao method for insert record
-			empDao.AddEmployee(emp);
+			empDao.addEmployee(emp);
 		}
 		catch(IOException ex) {
 			System.out.println(ex.getMessage());

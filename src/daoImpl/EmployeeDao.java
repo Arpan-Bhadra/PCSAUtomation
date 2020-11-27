@@ -15,12 +15,37 @@ public class EmployeeDao implements IEmployeeDao{
 		//Opened connection
 		conn=JDBCConnection.getDBConnection();
 	}
+	public Employee checkLogin(String userId, String password) {
+		Employee emp=new Employee();
+		try{
+			PreparedStatement pst=conn.prepareStatement("select * from Employee where userId=? and password=?");
+			pst.setString(1, userId);
+			pst.setString(2, password);
+			ResultSet rst=pst.executeQuery();
+			if(rst!=null) {
+				if(rst.next()) {
+					emp.setEmployeeID(rst.getInt(1));
+					emp.setFirstName(rst.getString(2));
+					emp.setLastName(rst.getString(3));
+					emp.setUserID(rst.getString(4));
+					emp.setPassword(rst.getString(5));
+					emp.setRole(rst.getString(6));
+					emp.setGender(rst.getString(7));
+					emp.setActive(rst.getString(8));
+				}
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		return emp;
+	}
 	@Override
 	public List<Employee> getAllEmployees() {
-		List<Employee> allEmpList=new ArrayList<Employee>();
+		List<Employee> allEmpList=new ArrayList<Employee>(); //1
 		try{
 			Statement stmt=conn.createStatement();
-			ResultSet rst=stmt.executeQuery("select * from employee");
+			ResultSet rst=stmt.executeQuery("select * from Employee");
 			if(rst!=null) {
 				Employee emp=null;
 				while(rst.next()) {
@@ -33,7 +58,7 @@ public class EmployeeDao implements IEmployeeDao{
 					emp.setRole(rst.getString(6));
 					emp.setGender(rst.getString(7));
 					emp.setActive(rst.getString(8));
-					allEmpList.add(emp); 
+					allEmpList.add(emp); //2
 				}
 			}
 		}
@@ -44,7 +69,7 @@ public class EmployeeDao implements IEmployeeDao{
 	}
 
 	@Override
-	public void AddEmployee(Employee emp){
+	public void addEmployee(Employee emp){
 		try {
 			//creating PreparedStatement object by passing query string
 			PreparedStatement pst=conn.prepareStatement("insert into Employee(FirstName, LastName,UserId,Password,Role,Gender,Active) values(?,?,?,?,?,?,?)");
