@@ -1,85 +1,104 @@
 package model;
 
 public class Job {
-
-	private int jobID;
-	private String jobTitle;
-	private  String jobDescription;
-	private  String companyName;
-	private  String location;
-	private  String keySkill;
-	private  float salary;
-	private  String active;
+	private int JobId;
+	private String JobTitle;
+	private String JobDescription;
+	private String CompanyName;
+	private String Location;
+	private String KeySkill;
+	private String Salary;
+	private String Active;
+	
 	public Job() {
-		super();
 		
 	}
 	
-	public Job(String jobTitle, String jobDescription, String companyName, String location, String keySkill,
-			float salary) {
+	public Job( String jobTitle, String jobDescription, String companyName,
+			String location, String keySkill,String salary) {
 		super();
-		this.jobTitle = jobTitle;
-		this.jobDescription = jobDescription;
-		this.companyName = companyName;
-		this.location = location;
-		this.keySkill = keySkill;
-		this.salary = salary;
+		this.JobTitle = jobTitle;
+		this.JobDescription = jobDescription;
+		this.CompanyName = companyName;
+		this.Location = location;
+		this.KeySkill = keySkill;
+		this.Salary = salary;
 	}
 
-	public int getJobID() {
-		return jobID;
+	public int getJobId() {
+		return JobId;
 	}
-	public void setJobID(int jobID) {
-		this.jobID = jobID;
+
+	public void setJobId(int jobId) {
+		JobId = jobId;
 	}
+
 	public String getJobTitle() {
-		return jobTitle;
+		return JobTitle;
 	}
+
 	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
+		JobTitle = jobTitle;
 	}
+
 	public String getJobDescription() {
-		return jobDescription;
+		return JobDescription;
 	}
+
 	public void setJobDescription(String jobDescription) {
-		this.jobDescription = jobDescription;
+		JobDescription = jobDescription;
 	}
+
 	public String getCompanyName() {
-		return companyName;
+		return CompanyName;
 	}
+
 	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+		CompanyName = companyName;
 	}
+
 	public String getLocation() {
-		return location;
+		return Location;
 	}
+
 	public void setLocation(String location) {
-		this.location = location;
+		Location = location;
 	}
+
 	public String getKeySkill() {
-		return keySkill;
+		return KeySkill;
 	}
+
 	public void setKeySkill(String keySkill) {
-		this.keySkill = keySkill;
+		KeySkill = keySkill;
 	}
-	public float getSalary() {
-		return salary;
+
+	public String getSalary() {
+		return Salary;
 	}
-	public void setSalary(float salary) {
-		this.salary = salary;
+
+	public void setSalary(String s6) {
+		Salary = s6;
 	}
+
 	public String getActive() {
-		return active;
+		return Active;
 	}
+
 	public void setActive(String active) {
-		this.active = active;
+		Active = active;
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "Job [jobID=" + jobID + ", jobTitle=" + jobTitle + ", jobDescription=" + jobDescription
-				+ ", companyName=" + companyName + ", location=" + location + ", keySkill=" + keySkill + ", salary="
-				+ salary + ", active=" + active + "]";
+		return "Job [JobId=" + JobId + ", JobTitle=" + JobTitle + ", JobDescription=" + JobDescription
+				+ ", CompanyName=" + CompanyName + ", Location=" + Location + ", KeySkill=" + KeySkill + ", Salary="
+				+ Salary + ", Active=" + Active + "]";
 	}
+
+	
+
 	
 }

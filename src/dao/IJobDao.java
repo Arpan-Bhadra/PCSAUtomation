@@ -1,13 +1,14 @@
 package dao;
 
 import java.util.List;
+
 import model.Job;
 
 public interface IJobDao {
 	List<Job> getAllJob();
-	void AddJob(Job emp);
+	void addJob(Job job);
 	Job getJobById(int id);
-	void updateJob(Job emp);
-	void deactivateJob(Job emp);
+	void updateJob(Job job);
+	void deactivateJob(Job job);
 	void deleteJob(int id);
 }

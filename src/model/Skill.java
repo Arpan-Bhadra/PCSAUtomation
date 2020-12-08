@@ -1,47 +1,61 @@
 package model;
 
 public class Skill {
-	private int skillID;
-	private String skillName;
-	private String skillDescription;
-	private String active;
+	
+	private int SkillId;
+	private String SkillName;
+	private String SkillDescription;
+	private String Active;
+	
 	public Skill() {
+		
+	}
+
+	public Skill( String skillName, String skillDescription, String active) {
 		super();
+		this.SkillName = skillName;
+		this.SkillDescription = skillDescription;
+		this.Active = active;
 	}
-	public Skill(String skillName, String skillDescription, String active) {
-		super();
-		this.skillName = skillName;
-		this.skillDescription = skillDescription;
-		this.active = active;
+
+	public int getSkillId() {
+		return SkillId;
 	}
-	public int getSkillID() {
-		return skillID;
+
+	public void setSkillId(int skillId) {
+		SkillId = skillId;
 	}
-	public void setSkillID(int skillID) {
-		this.skillID = skillID;
-	}
+
 	public String getSkillName() {
-		return skillName;
+		return SkillName;
 	}
+
 	public void setSkillName(String skillName) {
-		this.skillName = skillName;
+		SkillName = skillName;
 	}
+
 	public String getSkillDescription() {
-		return skillDescription;
+		return SkillDescription;
 	}
+
 	public void setSkillDescription(String skillDescription) {
-		this.skillDescription = skillDescription;
+		SkillDescription = skillDescription;
 	}
+
 	public String getActive() {
-		return active;
+		return Active;
 	}
+
 	public void setActive(String active) {
-		this.active = active;
+		Active = active;
 	}
+
 	@Override
 	public String toString() {
-		return "Skill [skillID=" + skillID + ", skillName=" + skillName + ", skillDescription=" + skillDescription
-				+ ", active=" + active + "]";
+		return "Skill [SkillId=" + SkillId + ", SkillName=" + SkillName + ", SkillDescription=" + SkillDescription
+				+ ", Active=" + Active + "]";
 	}
 	
+	
+
 }

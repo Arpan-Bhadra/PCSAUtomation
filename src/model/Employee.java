@@ -9,17 +9,19 @@ public class Employee {
 	private  String role;
 	private  String gender;
 	private  String active;
-	public Employee() {
-		
-	}
-	public Employee(String firstName, String lastName, String userID, String password, String role, String gender) {
+	public Employee(int employeeID,String firstName, String lastName, String userID, String password, String role, String gender,String active) {
 		super();
+		this.employeeID=employeeID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userID = userID;
 		this.password = password;
 		this.role = role;
 		this.gender = gender;
+		this.active = active;
+	}
+	public Employee() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getEmployeeID() {
 		return employeeID;

@@ -2,12 +2,12 @@ package dao;
 import java.util.List;
 
 import model.EmpSkill;
-public interface IEmpSkillDao {
-	List<EmpSkill> getAllEmpSkill();
-	void AddEmpSkill(EmpSkill emp);
-	EmpSkill getEmpSkillById(int id);
-	void updateEmpSkill(EmpSkill emp);
-	void deactivateEmpSkill(EmpSkill emp);
-	void deleteEmpSkill(int id);
 
+public interface IEmpSkillDao {
+	List<EmpSkill> getAllSkills();
+	void addSkills(EmpSkill emp);
+	EmpSkill getSkillById(int id);
+	void updateSkill(EmpSkill emp);
+	//void deactivateSkill(int id);
+	int deleteSkill(int id);
 }

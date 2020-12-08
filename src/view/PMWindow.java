@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.*;
 
@@ -44,7 +45,15 @@ public class PMWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				try {
+					new AddJobFrame();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		
@@ -106,7 +115,7 @@ public class PMWindow extends JFrame{
 		this.setTitle("PME Home Screen");
 		this.setVisible(true);
 		this.setBounds(10,10,500,1600);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
 

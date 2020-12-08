@@ -1,59 +1,64 @@
 package model;
 
 public class EmpSkill {
-	private int esID;
-	private int employeeId;
-	private int skillId;
-	private String expDate;
+
+	private int ESId;
+	private int EmployeeId;
+	private int SkillId;
+	private int ExpYear;
 	
 	public EmpSkill() {
+		
+	}
+
+	
+
+	public EmpSkill(int employeeId, int skillId, int expYear) {
 		super();
+		this.EmployeeId = employeeId;
+		this.SkillId = skillId;
+		this.ExpYear = expYear;
 	}
 
-	public EmpSkill(int employeeId, int skillId, String expDate) {
-		super();
-		this.employeeId = employeeId;
-		this.skillId = skillId;
-		this.expDate = expDate;
+
+
+	public int getESId() {
+		return ESId;
 	}
 
-	public int getEsID() {
-		return esID;
-	}
-
-	public void setEsID(int esID) {
-		this.esID = esID;
+	public void setESId(int eSId) {
+		ESId = eSId;
 	}
 
 	public int getEmployeeId() {
-		return employeeId;
+		return EmployeeId;
 	}
 
 	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+		EmployeeId = employeeId;
 	}
 
 	public int getSkillId() {
-		return skillId;
+		return SkillId;
 	}
 
 	public void setSkillId(int skillId) {
-		this.skillId = skillId;
+		SkillId = skillId;
 	}
 
-	public String getExpDate() {
-		return expDate;
+	public int getExpYear() {
+		return ExpYear;
 	}
 
-	public void setExpDate(String expDate) {
-		this.expDate = expDate;
+	public void setExpYear(int expYear) {
+		ExpYear = expYear;
 	}
 
 	@Override
 	public String toString() {
-		return "EmpSkill [esID=" + esID + ", employeeId=" + employeeId + ", skillId=" + skillId + ", expDate=" + expDate
+		return "EmpSkill [ESId=" + ESId + ", EmployeeId=" + EmployeeId + ", SkillId=" + SkillId + ", ExpYear=" + ExpYear
 				+ "]";
 	}
 	
-
+	
 }

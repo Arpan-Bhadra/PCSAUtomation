@@ -7,14 +7,13 @@ import javax.swing.*;
 public class SetActivateFrame extends JFrame{
 
 	Container container=null;
+	JFrame f;
 	public SetActivateFrame() {
 		container=getContentPane();
-		
-		
-		this.setTitle("Activate User Screen");
-		this.setVisible(true);
-		this.setBounds(10,10,500,1600);
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
+		f=new JFrame();
+		JOptionPane.showMessageDialog(f,"User Activated");
+	
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
 }

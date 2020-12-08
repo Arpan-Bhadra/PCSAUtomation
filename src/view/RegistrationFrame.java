@@ -2,20 +2,28 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
-
 import javax.swing.*;
-
 import controller.EmployeeController;
-import daoImpl.EmployeeDao;
+import model.Employee;
 
-public class RegistrationFrame extends JFrame{
+public class RegistrationFrame extends JFrame  {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Container container;
+	JFrame f;
 	JLabel lFirstname,lLastname,lUserId,lPassword,lconfirmPassword,lGender,lRole;
-	JTextField tFirstname,tLastname,tUserId,tPassword,tconfirmPassword,tGender,tRole;
+	JTextField tFirstname,tLastname,tUserId,tGender,tRole;
+	JPasswordField tPassword,tconfirmPassword;
 	JButton bSubmit;
 	JCheckBox cTerms;
-	public RegistrationFrame() {
+	EmployeeController empController=null;
+
+	public RegistrationFrame()throws ClassNotFoundException, SQLException {
 		container=getContentPane();
+		f=new JFrame();
 		lFirstname=new JLabel("First Name");
 		lLastname=new JLabel("Last Name");
 		lUserId=new JLabel("User Id");
@@ -28,30 +36,46 @@ public class RegistrationFrame extends JFrame{
 		tFirstname=new JTextField();
 		tLastname=new JTextField();
 		tUserId=new JTextField();
-		tPassword=new JTextField();
-		tconfirmPassword=new JTextField();
+		tPassword=new JPasswordField();
+		tconfirmPassword=new JPasswordField();
 		tGender=new JTextField();
 		tRole=new JTextField();
 		
 		bSubmit=new JButton("SUBMIT");
+		empController=new EmployeeController();
 		//Event handling for Register button
 		bSubmit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				String s1,s2,s3,s4,s5,s6,s7;
 				
-				
+				s1=tFirstname.getText();
+				s2=tLastname.getText();
+				s3=tUserId.getText();
+				s4=new String(tPassword.getPassword());
+				s5=tGender.getText();
+				s6=tRole.getText();
+				s7=new String(tconfirmPassword.getPassword());
+				if(s4.equals(s7))
+				{
+					empController.addEmployee(s1,s2,s3,s4,s5,s6);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(f,"Oops! Password do not match,Retry!");
+				}
 			}
 			
 		});
-		cTerms=new JCheckBox("I agree to terms & conditions");
+		//cTerms=new JCheckBox("I agree to terms & conditions");
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
 		this.setTitle("Registration Form");
 		this.setVisible(true);
 		this.setBounds(10,10,500,800);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
 	}
@@ -75,10 +99,8 @@ public class RegistrationFrame extends JFrame{
 		tconfirmPassword.setBounds(250,350,150,30);
 		tGender.setBounds(250, 400, 150, 30);
 		tRole.setBounds(250, 450, 150, 30);
-		cTerms.setBounds(150, 500, 250, 30);
+		//cTerms.setBounds(150, 500, 250, 30);
 		
-		
-		//bLogin.setBounds(100, 400, 100, 30);
 		bSubmit.setBounds(100, 550, 150, 30);
 	}
 	public void addComponentsToContainer() {
@@ -96,7 +118,7 @@ public class RegistrationFrame extends JFrame{
 		container.add(tGender);
 		container.add(lRole);
 		container.add(tRole);
-		container.add(cTerms);
+		//container.add(cTerms);
 		container.add(bSubmit);
 	}
 	

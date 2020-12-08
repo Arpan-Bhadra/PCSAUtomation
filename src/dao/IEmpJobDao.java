@@ -6,11 +6,9 @@ import model.EmpJob;
 
 public interface IEmpJobDao {
 	List<EmpJob> getAllEmpJob();
-	void AddEmpJob(EmpJob emp);
+	void addEmpJob(EmpJob empj);
 	EmpJob getEmpJobById(int id);
-	void updateEmpJob(EmpJob id);
-	void deactivateEmpJob(EmpJob emp);
+	void updateEmpJob(EmpJob empj);
+	//void deactivateEmpJob(int id);
 	void deleteEmpJob(int id);
-
 }
-

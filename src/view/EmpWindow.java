@@ -26,7 +26,6 @@ public class EmpWindow extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 		lTitle=new JLabel("Welcome to Employee Portal");
 		bViewprofile=new JButton("View Profile");
 		bViewprofile.addActionListener(new ActionListener(){
@@ -80,7 +79,7 @@ public class EmpWindow extends JFrame {
 		this.setTitle("EMP Home Screen");
 		this.setVisible(true);
 		this.setBounds(10,10,500,1600);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
 	public void setLayoutManager() {

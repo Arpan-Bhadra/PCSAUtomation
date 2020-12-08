@@ -1,16 +1,16 @@
 package dao;
 
-import java.util.List;
-
 import model.Employee;
-
+import java.util.*;
 public interface IEmployeeDao {
-
-	List<Employee> getAllEmployees();
+	ArrayList<Employee> getAllEmployees();
 	void addEmployee(Employee emp);
 	Employee getEmployeeById(int id);
 	void updateEmployee(Employee emp);
-	void deactivateEmployee(Employee emp);
 	void deleteEmployee(int id);
-	Employee checkLogin(String userId, String password);
+	void deactivateEmployee(int id);
+	Employee checkLogin(String userId,String password);
+	void activateEmployee(int id);
+	
+	
 }
