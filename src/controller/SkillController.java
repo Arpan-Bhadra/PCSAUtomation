@@ -57,20 +57,31 @@ public class SkillController {
 			try {
 				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 				int id;
-				System.out.println("Enter the SkillId whose record you want to update:");
+				String description, newdescription ;
+				System.out.println("Enter SkillId whose record you want to update:");
 				id=Integer.parseInt(reader.readLine());
-				Skill sk=skDao.getSkillById(id);
-				skDao.updateSkill(sk);
+				Skill emp=skDao.getSkillById(id);
+				System.out.println("Enter your new Description:");
+				description=reader.readLine();
+				System.out.println("Re-enter same Description to confirm:");
+				newdescription=reader.readLine();
+				if(description.equals(newdescription)) {
+					emp.setSkillDescription(description);
+					skDao.updateSkill(emp);
+				}
+				else {
+					System.out.println("Sorry! you have entered different Description!");
+				}
 			}
 			catch(IOException ex) {
 				System.out.println(ex.getMessage());
 			}
 		}
-		public void deactivateSkill(int id) {
+		public void deactivateSkill(int id) throws NumberFormatException, IOException {
 			
-				/*BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-				int id;
-				System.out.println("Enter the SkillId whose record you want to deactivate:");
+				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		
+				/*System.out.println("Enter the SkillId whose record you want to deactivate:");
 				id=Integer.parseInt(reader.readLine());
 				Skill sk=skDao.getSkillById(id);*/
 				skDao.deactivateSkill(id);

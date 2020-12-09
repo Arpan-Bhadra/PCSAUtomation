@@ -95,19 +95,15 @@ public class SkillDaoImpl implements ISkillDao {
 	@Override
 	public void updateSkill(Skill sk) {
 		try {
-			PreparedStatement pst=conn.prepareStatement("Update Skill set SkillName=?,set SkillDescription=? where SkillId=?");
-			pst.setString(1,sk.getSkillName());
-			pst.setString(2, sk.getSkillDescription());
-			pst.setInt(3, sk.getSkillId());
+			PreparedStatement pst=conn.prepareStatement("update Skill set SkillDescription=? where SkillId=?");
+			pst.setString(1, sk.getSkillDescription());
+			pst.setInt(2, sk.getSkillId());
 			int i=pst.executeUpdate();
-			
-			if(i==1)
-			{
-				System.out.println("1 record updated");
+			if(i==1){
+				System.out.println("1 record updated...");
 			}
-			else
-			{
-				System.out.println("Updation failed...");
+			else {
+				System.out.println("updation failed...");
 			}
 		}
 			catch(SQLException ex)
@@ -124,14 +120,14 @@ public class SkillDaoImpl implements ISkillDao {
 			pst.setInt(2,id);
 			int i=pst.executeUpdate();
 			
-			/*if(i==1)
+			if(i==1)
 			{
 				System.out.println("Skill Deactivated");
 			}
 			else
 			{
 				System.out.println("Updation failed...");
-			}*/
+			}
 		}
 			catch(SQLException ex)
 			{

@@ -106,10 +106,9 @@ public class JobDaoImpl implements IJobDao{
 	@Override
 	public void updateJob(Job job) {
 		try {
-			PreparedStatement pst=conn.prepareStatement("Update Job set JobTitle=?,set JobDescription=? where EmployeeId=?");
-			pst.setString(1,job.getJobTitle());
-			pst.setString(2,job.getJobDescription());
-			pst.setInt(3,job.getJobId());
+			PreparedStatement pst=conn.prepareStatement("update Job set Salary=? where JobId=?");
+			pst.setString(1, job.getSalary());
+			pst.setInt(2, job.getJobId());
 			int i=pst.executeUpdate();
 			
 			if(i==1)

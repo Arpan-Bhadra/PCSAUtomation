@@ -70,10 +70,21 @@ public class JobController {
 		try {
 			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 			int id;
-			System.out.println("Enter the JobId whose record you want to update:");
+			String salary,confirmsalary;
+			System.out.println("Enter JobId whose record you want to update:");
 			id=Integer.parseInt(reader.readLine());
-			Job job=jobDao.getJobById(id);
-			jobDao.updateJob(job);
+			Job emp=jobDao.getJobById(id);
+			System.out.println("Enter your new Salary:");
+			salary=reader.readLine();
+			System.out.println("Re-enter same Salary to confirm:");
+			confirmsalary=reader.readLine();
+			if(salary.equals(confirmsalary)) {
+				emp.setSalary(salary);
+				jobDao.updateJob(emp);
+			}
+			else {
+				System.out.println("Sorry! you have entered different Salary!");
+			}
 		}
 		catch(IOException ex) {
 			System.out.println(ex.getMessage());
