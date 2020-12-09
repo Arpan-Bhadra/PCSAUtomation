@@ -40,6 +40,9 @@ public class SkillController {
 	public List<Skill> getAllSkills()
 	{
 		List<Skill> allSkillList=skDao.getAllSkills();
+		for(Skill sk:allSkillList) {
+			System.out.println(sk);
+		}
 		
 			return allSkillList;
 	}

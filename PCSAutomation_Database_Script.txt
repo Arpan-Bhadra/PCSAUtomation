@@ -15,28 +15,24 @@ create table Employee(
 );
 -- Creating Table:: empjob
 CREATE TABLE EmpJob (
-    ejId INT AUTO_INCREMENT,
-    employeeId INT NOT NULL,
-    CONSTRAINT employeeId FOREIGN KEY (employeeId)
-	REFERENCES employee (empId),
-    jobId INT NOT NULL,
-    CONSTRAINT jobId FOREIGN KEY (jobId)
-	REFERENCES job(jobId),
-    recruited VARCHAR(20) NOT NULL,
-    PRIMARY KEY(ejId)
+create table empJob(
+EJId int auto_increment   ,
+EmployeeId int not null ,
+JobId int not null,
+Recruited varchar(10)not null,
+primary key(EJId)
+);
 );
 -- Creating Table:: empskill
-CREATE TABLE empskill (
-    esId INT AUTO_INCREMENT,
-    employeeId INT NOT NULL,
-    CONSTRAINT  FOREIGN KEY (employeeId)
-	REFERENCES employee (empId),
-    skillId INT NOT NULL,
-    CONSTRAINT FOREIGN KEY (skillId)
-        REFERENCES Skill (skillId),
-    ExpYear date NOT NULL,
-    PRIMARY KEY (esId)
+create table empSkill(
+ESId int   auto_increment ,
+EmployeeId int not null ,
+SkillId int not null,
+ExpYear int not null,
+primary key(ESID)
 );
+
+
 -- Creating Table:: job
 create table job(
 	jobId int auto_increment,

@@ -95,9 +95,25 @@ public class EmpSkillDaoImpl implements IEmpSkillDao {
 	}
 	@Override
 	public void updateSkill(EmpSkill emp) {
-		// TODO Auto-generated method stub
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("update Employee set ExpYear=? where EsId=?");
+			pst.setInt(1, emp.getExpYear());
+			pst.setInt(2, emp.getESId());
+			int i=pst.executeUpdate();
+			if(i==1){
+				System.out.println("1 record updated...");
+			}
+			else {
+				System.out.println("updation failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}	
 		
 	}
+		
 	//public void deactivateSkill(int id) {
 		// TODO Auto-generated method stub
 		

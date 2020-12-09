@@ -63,6 +63,9 @@ public class EmployeeController extends JFrame {
 	public ArrayList<Employee> getAllEmployees() {
 		
 		ArrayList<Employee> allEmpList=empDao.getAllEmployees();
+		for(Employee emp:allEmpList) {
+			System.out.println(emp);
+		}
 		return allEmpList;
 	
 	}
@@ -71,6 +74,7 @@ public class EmployeeController extends JFrame {
 		int id;
 		id=Integer.parseInt(EmployeeId);
 		Employee emp=empDao.getEmployeeById(id);
+		System.out.println(emp);
 			return emp;
 		
 	
@@ -109,6 +113,20 @@ public class EmployeeController extends JFrame {
 			empDao.deactivateEmployee(id);
 		
 	}
+	/*
+public void deactivateEmployee() {
+		try {
+			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			int id;
+			System.out.println("Enter EmployeeId whose record you want to deactivate:");
+			id=Integer.parseInt(reader.readLine());
+			Employee emp=empDao.getEmployeeById(id);
+			empDao.deactivateEmployee(emp);
+		}
+		catch(IOException ex) {
+			System.out.println(ex.getMessage());
+		}
+	}*/
 	public void deleteEmployee() {
 		try {
 			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
@@ -196,6 +214,9 @@ public class EmployeeController extends JFrame {
 	IEmpSkillDao ek=new EmpSkillDaoImpl();
 	public List<EmpSkill> getAllSkills(){
 		 List<EmpSkill> allEmpSkilllist=ek.getAllSkills();
+		 for(EmpSkill ek:allEmpSkilllist) {
+				System.out.println(ek);
+			}
 		 return  allEmpSkilllist;
 	}
 	public void addEmpSkill(int s1, int s2, int s3)  {

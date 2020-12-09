@@ -130,7 +130,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public void updateEmployee(Employee emp) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Password=? where EmployeeId=?");
+			PreparedStatement pst=conn.prepareStatement("update Employee set Password=? where empId=?");
 			pst.setString(1, emp.getPassword());
 			pst.setInt(2, emp.getEmployeeID());
 			int i=pst.executeUpdate();
@@ -148,7 +148,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public void activateEmployee(int id) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where EmployeeId=?");
+			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where empId=?");
 			pst.setString(1, "Active");
 			pst.setInt(2, id);
 			int i=pst.executeUpdate();
@@ -168,7 +168,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public void deactivateEmployee(int id) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where EmployeeId=?");
+			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where empId=?");
 			pst.setString(1, "Deactive");
 			pst.setInt(2, id);
 			int i=pst.executeUpdate();
@@ -189,7 +189,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public void deleteEmployee(int id) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("delete from Employee where EmployeeId=?");
+			PreparedStatement pst=conn.prepareStatement("delete from Employee where empId=?");
 			pst.setInt(1, id);
 			int i=pst.executeUpdate();
 			if(i==1){
@@ -204,6 +204,5 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		}	
 		
 	}
-
 	
 }

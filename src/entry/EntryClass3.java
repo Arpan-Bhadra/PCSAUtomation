@@ -1,4 +1,4 @@
-/*package entry;
+package entry;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class EntryClass3 {
 		//enter.testConnection();
 		String TableName;
 		Scanner s=new Scanner(System.in);
-		int choice;
+		int choice = 0;
 		char c='y';
 		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 		while(c=='y' || c=='Y') {
@@ -42,18 +42,19 @@ public class EntryClass3 {
 					System.out.println("3. Add an Employee");
 					System.out.println("4. Update an Employee record");
 					System.out.println("5. Deactive an Employee record");
-					System.out.println("6. Delete an Employees record");
-					System.out.println("7. View all Employee Skill records");
-					System.out.println("8. View single Employee Skill record");
-					System.out.println("9. Add an Employee Skill");
-					System.out.println("10. Update an Employee Skill record");
-					System.out.println("11. Delete an Employee Skill record");
-					System.out.println("12. View all Employee Job records");
-					System.out.println("13. View single Employee Job record");
-					System.out.println("14. Add an Employee Job");
-					System.out.println("15. Update an Employee Job record");
-					System.out.println("16. Delete an Employee Job record");
-					System.out.println("17. Exit");
+					System.out.println("6. Active an Employee record");
+					System.out.println("7. Delete an Employees record");
+					System.out.println("8. View all Employee Skill records");
+					System.out.println("9. View single Employee Skill record");
+					System.out.println("10. Add an Employee Skill");
+					System.out.println("11. Update an Employee Skill record");
+					System.out.println("12. Delete an Employee Skill record");
+					System.out.println("13. View all Employee Job records");
+					System.out.println("14. View single Employee Job record");
+					System.out.println("15. Add an Employee Job");
+					System.out.println("16. Update an Employee Job record");
+					System.out.println("17. Delete an Employee Job record");
+					System.out.println("18. Exit");
 					System.out.println("Enter your choice:");
 					option=sc.nextInt();
 					switch(option) {
@@ -62,56 +63,89 @@ public class EntryClass3 {
 							empController.getAllEmployees();
 							break;
 						case 2:
-							empController.getEmployeeById();
+							String id;
+							System.out.println("Enter the Id:");
+							id=s.next();
+							empController.getEmployeeById(id);
 							break;
 						case 3:
+							String s1,s2,s3,s4,s5,s6;
 							System.out.println("Enter Employee Detail:");
-							empController.addEmployee(TableName, TableName, TableName, TableName, TableName, TableName);
+							System.out.println("Enter First Name:");
+							s1=s.next();
+							System.out.println("Enter Last Name:");
+							s2=s.next();
+							System.out.println("Enter UserId:");
+							s3=s.next();
+							System.out.println("Enter Password:");
+							s4=s.next();
+							System.out.println("Enter Gender:");
+							s5=s.next();
+							System.out.println("Enter Role:");
+							s6=s.next();
+							empController.addEmployee(s1, s2, s3, s4, s5, s6);
 							break;
 						case 4:
 							empController.updateEmployee();
 							break;
 						case 5:
-							empController.deactivateEmployee();
+							int ID;
+							System.out.println("Enter EmployeeId whose record you want to deactivate:");
+							ID=s.nextInt();
+							empController.deactiveEmployee (ID);
 							break;
 						case 6:
-							empController.deleteEmployee();
+							System.out.println("Enter EmployeeId whose record you want to activate:");
+							ID=s.nextInt();
+							empController.activateEmployee(ID);
 							break;
 						case 7:
-							System.out.println("Following are all Employee Skill Details:");
-							empController.getAllEmpSkills();
+							empController.deleteEmployee();
 							break;
 						case 8:
-							empController.getEmpSkillById();
+							System.out.println("Following are all Employee Skill Details:");
+							empController.getAllSkills();
 							break;
 						case 9:
-							System.out.println("Enter Employee Skill Detail:");
-							empController.addEmpSkill();
+							System.out.println("Enter the Id:");
+							id=s.next();
+							empController.getSkillById(id);
 							break;
 						case 10:
-							empController.updateEmpSkill();
+							System.out.println("Enter Employee Skill Detail:");
+							int i1,i2,i3;
+							System.out.println("Enter Employee ID:");
+							i1=s.nextInt();
+							System.out.println("Enter Skill ID:");
+							i2=s.nextInt();
+							System.out.println("Enter ExpYear:");
+							i3=s.nextInt();
+							empController.addEmpSkill(i1, i2, i3);;
 							break;
 						case 11:
-							empController.DeleteEmpSkill();
+							empController.updateSkill();
 							break;
 						case 12:
-							System.out.println("Following are all EmpJob Details:");
-							empController.getAllEmpJobs();
+							empController.deleteSkill();
 							break;
 						case 13:
-							empController.getEmpJobById();
+							System.out.println("Following are all EmpJob Details:");
+							empController.getAllEmpJob();
 							break;
 						case 14:
-							System.out.println("Enter EmpJob Detail:");
-							empController.addEmpJob();
+							empController.getEmpJobById(TableName);
 							break;
 						case 15:
-							empController.updateEmpJob();
+							System.out.println("Enter EmpJob Detail:");
+							empController.addEmpJob(choice,choice,TableName);
 							break;
 						case 16:
-							empController.DeleteEmpJob();
+							empController.updateEmpJob();
 							break;
 						case 17:
+							empController.deleteEmpJob();
+							break;
+						case 18:
 							System.exit(0);
 							break;
 						default:
@@ -142,7 +176,7 @@ public class EntryClass3 {
 							skillController.getAllSkills();
 							break;
 						case 2:
-							skillController.getSkillById();
+							skillController.getSkillById(TableName);
 							break;
 						case 3:
 							System.out.println("Enter Skill Detail:");
@@ -151,9 +185,9 @@ public class EntryClass3 {
 						case 4:
 							skillController.updateSkill();
 							break;
-						case 5:
+						/*case 5:
 							skillController.deactivateSkill();
-							break;
+							break;*/
 						case 6:
 							skillController.deleteSkill();
 							break;
@@ -217,4 +251,4 @@ public class EntryClass3 {
 			c=s.next().charAt(0);
 		}
 	}	
-}*/
+}
