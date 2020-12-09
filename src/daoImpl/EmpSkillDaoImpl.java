@@ -97,7 +97,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao {
 	public void updateSkill(EmpSkill emp) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set ExpYear=? where EsId=?");
+			PreparedStatement pst=conn.prepareStatement("update EmpSkill set ExpYear=? where ESId=?");
 			pst.setInt(1, emp.getExpYear());
 			pst.setInt(2, emp.getESId());
 			int i=pst.executeUpdate();
@@ -119,9 +119,9 @@ public class EmpSkillDaoImpl implements IEmpSkillDao {
 		
 	//}
 	@Override
-	public int deleteSkill(int id) {
+	public void deleteSkill(int id) {
 		try {
-			PreparedStatement pst=conn.prepareStatement("Delete EmpSkill where ESId=?");
+			PreparedStatement pst=conn.prepareStatement("Delete from EmpSkill where ESId=?");
 			pst.setInt(1,id);
 			int i=pst.executeUpdate();
 			
@@ -138,7 +138,6 @@ public class EmpSkillDaoImpl implements IEmpSkillDao {
 			{
 				System.out.println(ex.getMessage());
 			}
-		return id;
 		
 	}
 }

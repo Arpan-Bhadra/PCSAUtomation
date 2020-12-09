@@ -146,14 +146,18 @@ public void deactivateEmployee() {
 	IEmpJobDao ejb=new EmpJobDaoImpl();
 	public List<EmpJob> getAllEmpJob(){
 		 List<EmpJob> allEmpJoblist=ejb.getAllEmpJob();
+		 for(EmpJob ejb:allEmpJoblist) {
+				System.out.println(ejb);
+			}
 		 return  allEmpJoblist;
 		
 	}
 	public void addEmpJob(int s1, int s2, String s3)  {
 		EmpJob emp=new EmpJob();
-		emp.setEjID(s1);
-		emp.setEmployeeId(s2);
+		//emp.setEjID(s1);
+		emp.setEmployeeId(s1);
 		emp.setRecruited(s3);
+		emp.setJobId(s2);
 		ejb.addEmpJob(emp);
 	
 }
@@ -161,6 +165,7 @@ public void deactivateEmployee() {
 		int id;
 		id=Integer.parseInt(ejId);
 		EmpJob emp=ejb.getEmpJobById(id);
+		System.out.println(emp);
 			return emp;
 		
 	
@@ -169,15 +174,15 @@ public void deactivateEmployee() {
 		try {
 			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 			int id;
-			String recruited, confirmrecruited;
+			String recruited, confirm;
 			System.out.println("Enter EmpJobId whose record you want to update:");
 			id=Integer.parseInt(reader.readLine());
 			EmpJob emp=ejb.getEmpJobById(id);
 			System.out.println("Enter yes if recruited:");
 			recruited=reader.readLine();
 			System.out.println("Re-enter yes if recruited:");
-			confirmrecruited=reader.readLine();
-			if(recruited.equals("yes")) {
+			confirm=reader.readLine();
+			if(recruited.equals(confirm)) {
 				emp.setRecruited(recruited);
 				ejb.updateEmpJob(emp);
 			}
@@ -230,6 +235,7 @@ public void deactivateEmployee() {
 		int id;
 		id=Integer.parseInt(ejId);
 		EmpSkill emp=ek.getSkillById(id);
+		System.out.println(emp);
 			return emp;
 		}
 	public void updateSkill() {
@@ -241,9 +247,9 @@ public void deactivateEmployee() {
 			id=Integer.parseInt(reader.readLine());
 			EmpSkill emp=ek.getSkillById(id);
 			System.out.println("Enter Exp Year:");
-			expdate=reader.read();
+			expdate=Integer.parseInt(reader.readLine());
 			System.out.println("Re-enter Exp Year:");
-			confirmexpdate=reader.read();
+			confirmexpdate=Integer.parseInt(reader.readLine());
 			if(expdate==confirmexpdate) {
 				emp.setExpYear(expdate);
 				ek.updateSkill(emp);
@@ -258,8 +264,9 @@ public void deactivateEmployee() {
 	}
 	public void deleteSkill() throws IOException {
 		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-		int id = 0;
+		int id;
 		System.out.println("Enter EmpSkillId whose record you want to delete:");
-		id=ek.deleteSkill(id);
+		id=Integer.parseInt(reader.readLine());
+		ek.deleteSkill(id);
 	}
 }

@@ -45,9 +45,9 @@ public class EmpJobDaoImpl implements IEmpJobDao {
 	@Override
 	public void addEmpJob(EmpJob empj) {
 		try {
-			PreparedStatement pst=conn.prepareStatement("Insert into EmpJob(EmployeeId,JobId,Recurited) values(?,?,?)");
-			pst.setInt(3,empj.getEmployeeId());
-			pst.setInt(3,empj.getJobId());
+			PreparedStatement pst=conn.prepareStatement("Insert into EmpJob(EmployeeId,JobId,Recruited) values(?,?,?)");
+			pst.setInt(1,empj.getEmployeeId());
+			pst.setInt(2,empj.getJobId());
 			pst.setString(3,empj.getRecruited());
 		
 			int i=pst.executeUpdate();
@@ -137,7 +137,7 @@ public class EmpJobDaoImpl implements IEmpJobDao {
 	@Override
 	public void deleteEmpJob(int id) {
 		try {
-			PreparedStatement pst=conn.prepareStatement("Delete EmpJob where EJId=?");
+			PreparedStatement pst=conn.prepareStatement("Delete from EmpJob where EJId=?");
 			pst.setInt(1,id);
 			int i=pst.executeUpdate();
 			

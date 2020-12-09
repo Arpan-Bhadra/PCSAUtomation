@@ -133,11 +133,19 @@ public class EntryClass3 {
 							empController.getAllEmpJob();
 							break;
 						case 14:
-							empController.getEmpJobById(TableName);
+							System.out.println("Enter the Id:");
+							id=s.next();
+							empController.getEmpJobById(id);
 							break;
 						case 15:
 							System.out.println("Enter EmpJob Detail:");
-							empController.addEmpJob(choice,choice,TableName);
+							System.out.println("Enter Employee ID:");
+							i1=s.nextInt();
+							System.out.println("Enter Job ID:");
+							i2=s.nextInt();
+							System.out.println("Enter Recruted:");
+							s1=s.next();
+							empController.addEmpJob(i1,i2,s1);
 							break;
 						case 16:
 							empController.updateEmpJob();

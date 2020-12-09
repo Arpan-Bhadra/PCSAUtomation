@@ -9,5 +9,5 @@ public interface IEmpSkillDao {
 	EmpSkill getSkillById(int id);
 	void updateSkill(EmpSkill emp);
 	//void deactivateSkill(int id);
-	int deleteSkill(int id);
+	void deleteSkill(int id);
 }
