@@ -43,13 +43,14 @@ public class JobController {
 		jobDao.addJob(job);
 	}
 	
-	public void getAllJob()
+	public List<Job> getAllJob()
 	{
 		List<Job> allJobList=jobDao.getAllJob();
 		for(Job job:allJobList)
 		{
 			System.out.println(job);
 		}
+		return allJobList;
 		
 	}
 	public void getJobById()

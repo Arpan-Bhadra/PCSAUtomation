@@ -19,11 +19,12 @@ public class ViewAllEmployees extends JFrame {
 	    frame.add(taEmployeeDetails);
 		frame.setVisible(true);
 		frame.setSize(1000,1000);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.NORMAL);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		taEmployeeDetails.setBounds(10,30,900,800);
+		taEmployeeDetails.setEditable(false);
 	}
 	
 	public void showEmployeeData()

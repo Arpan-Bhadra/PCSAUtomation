@@ -31,6 +31,10 @@ public class EmployeeController extends JFrame {
 		Employee emp=empDao.checkLogin(userId, password);
 		return emp;
 	}
+	public Employee checkUser(String userId) {
+		Employee emp=empDao.checkUser(userId);
+		return emp;
+	}
 	
 	public void addEmployee(String s1, String s2, String s3, String s4,String s5, String s6)  {
 		Employee emp=new Employee();
@@ -269,4 +273,5 @@ public void deactivateEmployee() {
 		id=Integer.parseInt(reader.readLine());
 		ek.deleteSkill(id);
 	}
+
 }

@@ -28,8 +28,6 @@ public class LoginFrame extends JFrame{
 		
 		tUserId=new JTextField();
 		tPassword=new JPasswordField();
-		
-		
 		bLogin=new JButton("LOGIN");
 		empController=new EmployeeController();
 		//Event handling for Login button
@@ -41,11 +39,7 @@ public class LoginFrame extends JFrame{
 				Employee emp=new Employee();
 				userId=tUserId.getText();
 				password=new String(tPassword.getPassword());
-				
-				
-				//System.out.println(emp.getPassword()+" "+userId+password);
 				emp=empController.checkLogin(userId, password);
-				//System.out.println(emp.getRole());
 				if(emp==null) {
 					lMessage.setText("You are not authorized user! Retry or Register!");
 				}
@@ -53,7 +47,7 @@ public class LoginFrame extends JFrame{
 						if(emp.getRole().equals("HRA"))
 						{
 							try {
-								new HRWindow();
+								new HRAHome();
 							} catch (ClassNotFoundException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -64,14 +58,14 @@ public class LoginFrame extends JFrame{
 						}
 						else if(emp.getRole().equals("EMP"))
 						{
-							new EmpWindow(emp);
+							new EMPHome(emp);
 						}
 						else 
 						{
-							new PMWindow();
+							new PMEHome();
 						}
-					}
-				}	
+				}
+			}	
 			
 		});
 		bRegister=new JButton("REGISTER");

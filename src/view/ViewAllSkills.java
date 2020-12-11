@@ -1,40 +1,33 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import controller.EmployeeController;
-import model.Employee;
-
-
-import javax.swing.JScrollPane;
-
+import controller.SkillController;
+import model.Skill;
 import java.awt.Font;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
+
+
 import javax.swing.UIManager;
 
-public class EmployeeDetails extends JFrame
+public class ViewAllSkills extends JFrame
 {
-	private EmployeeController empController;
+	private SkillController skController;
 	private JFrame frame;
 	private JTable table;
 
-	public EmployeeDetails()throws ClassNotFoundException, SQLException {
-		String[] columnNames = {"Employee ID","Name","Gender","Designation","Status"};
-		empController=new EmployeeController();
+	public ViewAllSkills()throws ClassNotFoundException, SQLException {
+		String[] columnNames = {"SKILL ID","SKILL NAME","SKILL DESCRIPTION","STATUS"};
+		skController=new SkillController();
 		frame = new JFrame("Employee Details");
-		frame.setResizable(true);
+		frame.setResizable(false);
 		frame.setSize(1000, 800);
 		frame.setVisible(true);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout());
+		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		DefaultTableModel model = new DefaultTableModel();
 		
@@ -50,23 +43,21 @@ public class EmployeeDetails extends JFrame
 		table.setSize(970, 727);
 		frame.getContentPane().add(table,BorderLayout.CENTER);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
         table.setFillsViewportHeight(true);
-        
        
-		ArrayList<Employee> data= empController.getAllEmployees();
+		List<Skill> data= skController.getAllSkills();
 		int s1;
-		String s2,s3,s4,s5,s6,s7;
-		model.addRow(new Object[] {"Employee ID","Name","Gender","Designation","Status"});
-		for(Employee emp:data)
+		String s2,s3,s4;
+		model.addRow(new Object[] {"SKILL ID","SKILL NAME","SKILL DESCRIPTION","STATUS"});
+		for(Skill sk:data)
 		{
-			s1=emp.getEmployeeID();
-			s2=emp.getFirstName();
-			s3=emp.getLastName();
-			s4=emp.getGender();
-			s5=emp.getRole();
-			s6=emp.getActive();
-			s7=s2+" "+s3;
-			model.addRow(new Object[]{s1,s7,s4,s5,s6});
+			s1=sk.getSkillId();
+			s2=sk.getSkillName();
+			s3=sk.getSkillDescription();
+			s4=sk.getActive();
+			
+			model.addRow(new Object[]{s1,s2,s3,s4});
 		}
 	}
 }
