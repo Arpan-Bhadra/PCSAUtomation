@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,11 +23,12 @@ public class ActivateEmployee {
 	
 	public ActivateEmployee()throws ClassNotFoundException, SQLException {
 		empController=new EmployeeController();
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame = new JFrame("ACTIVATE EMPLOYEE");
+		frame.setBounds(100, 100, 400, 250);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setBackground(Color.WHITE);
+		frame.setResizable(false);
 		JLabel lblEmployeeId = new JLabel("Employee ID");
 		lblEmployeeId.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblEmployeeId.setBounds(64, 54, 107, 35);
@@ -39,7 +41,7 @@ public class ActivateEmployee {
 		
 		JButton btnSubmit = new JButton("SUBMIT");
 		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnSubmit.setBounds(142, 114, 97, 25);
+		btnSubmit.setBounds(150, 150, 100, 25);
 		frame.getContentPane().add(btnSubmit);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

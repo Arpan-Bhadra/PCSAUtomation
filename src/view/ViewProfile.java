@@ -7,7 +7,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -44,7 +43,7 @@ public ViewProfile() throws SQLException,ClassNotFoundException
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(false);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setLocationRelativeTo(null);
 		
 		frame1 = new JFrame("PROFILE SELECTION");
@@ -59,12 +58,7 @@ public ViewProfile() throws SQLException,ClassNotFoundException
 		lblUserId.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblUserId.setBounds(60, 40, 130, 30);
 		frame1.getContentPane().add(lblUserId);
-		
-		/*textField_6 = new JTextField();
-		textField_6.setBounds(200, 40, 150, 30);
-		frame1.getContentPane().add(textField_6);
-		textField_6.setColumns(10);*/
-	
+
 		JLabel lblEmployeeId = new JLabel("EMPLOYEE ID");
 		lblEmployeeId.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblEmployeeId.setBounds(50, 35, 130, 30);
@@ -86,7 +80,6 @@ public ViewProfile() throws SQLException,ClassNotFoundException
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		textField_1.setEditable(false);
-		
 		JLabel lblNewLabel_1 = new JLabel("USER ID");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(50, 135, 130, 30);
@@ -169,8 +162,8 @@ public ViewProfile() throws SQLException,ClassNotFoundException
 				String userId="";
 				userId=(String) comboBox.getSelectedItem();
 				emp=empController.checkUser(userId);
-					int s1;
-					String s2,s3,s4,s5,s6,s7,s8;
+				int s1 = 0;
+				String s2 = "",s3 = "",s4,s5,s6,s7,s8;
 							s1=emp.getEmployeeID();
 							s2=emp.getFirstName();
 							s3=emp.getLastName();
@@ -193,5 +186,4 @@ public ViewProfile() throws SQLException,ClassNotFoundException
 		});
 	
 }
-		
 }		

@@ -20,7 +20,7 @@ public class DeactivateJob {
 	
 	public DeactivateJob()throws ClassNotFoundException, SQLException {
 		jobController=new JobController();
-		frame = new JFrame();
+		frame = new JFrame("DEACTIVATE JOB");
 		frame.setBounds(100, 100, 450, 300);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -37,7 +37,7 @@ public class DeactivateJob {
 		
 		JButton btnSubmit = new JButton("SUBMIT");
 		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnSubmit.setBounds(142, 114, 97, 25);
+		btnSubmit.setBounds(150, 120, 100, 25);
 		frame.getContentPane().add(btnSubmit);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

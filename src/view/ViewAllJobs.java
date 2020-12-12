@@ -22,7 +22,7 @@ public class ViewAllJobs extends JFrame
 	public ViewAllJobs()throws ClassNotFoundException, SQLException {
 		String[] columnNames = {"JOB ID","JOB TITLE","JOB DESCRIPTION","COMPANY NAME","LOCATION","KEY SKILL","SALARY","STATUS"};
 		jobController=new JobController();
-		frame = new JFrame("Employee Details");
+		frame = new JFrame("Job Details");
 		frame.setResizable(true);
 		frame.setSize(1000, 800);
 		frame.setVisible(true);
@@ -41,8 +41,9 @@ public class ViewAllJobs extends JFrame
 		table.setColumnSelectionAllowed(true);
 		table.setModel(model);
 		table.setSize(1200, 800);
-		frame.getContentPane().add(table);
-       // table.setFillsViewportHeight(true);
+		frame.getContentPane().add(table,BorderLayout.CENTER);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		table.setFillsViewportHeight(true);
 		List<Job> data= jobController.getAllJob();
 		int s1;
 		String s2,s3,s4,s5,s6,s7,s8;

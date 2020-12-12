@@ -23,7 +23,7 @@ public class DeactivateSkill {
 	
 	public DeactivateSkill()throws ClassNotFoundException, SQLException {
 		skController=new SkillController();
-		frame = new JFrame();
+		frame = new JFrame("DEACTIVATE SKILL");
 		frame.setBounds(100, 100, 450, 300);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -40,7 +40,7 @@ public class DeactivateSkill {
 		
 		JButton btnSubmit = new JButton("SUBMIT");
 		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnSubmit.setBounds(142, 114, 97, 25);
+		btnSubmit.setBounds(150, 120, 100, 25);
 		frame.getContentPane().add(btnSubmit);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
@@ -61,17 +61,17 @@ public class DeactivateSkill {
 				int id=0;
 				id=Integer.parseInt(textField.getText());
 				JOptionPane.showMessageDialog(frame,"Skill Deactivated");
-				try {
-					obj.setDeactivate(id);
-				} catch (NumberFormatException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				obj.setDeactivate(id);
 			}
 			});
 	}
-	public void setDeactivate(int id) throws NumberFormatException, IOException
+	public void setDeactivate(int id)
 	{
-		skController.deactivateSkill(id);
+		try {
+			skController.deactivateSkill(id);
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -22,9 +22,9 @@ public class DeactivateEmployee {
 	
 	public DeactivateEmployee()throws ClassNotFoundException, SQLException {
 		empController=new EmployeeController();
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame = new JFrame("DEACTIVATE EMPLOYEE");
+		frame.setBounds(100, 100, 400, 250);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblEmployeeId = new JLabel("EMPLOYEE ID");
@@ -39,10 +39,11 @@ public class DeactivateEmployee {
 		
 		JButton btnSubmit = new JButton("SUBMIT");
 		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnSubmit.setBounds(142, 114, 97, 25);
+		btnSubmit.setBounds(150, 150, 100, 25);
 		frame.getContentPane().add(btnSubmit);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		btnSubmit.addActionListener(new ActionListener ()
 		{
 			public void actionPerformed(ActionEvent arg0)

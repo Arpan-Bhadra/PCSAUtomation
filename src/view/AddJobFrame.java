@@ -64,7 +64,7 @@ public class AddJobFrame extends JFrame{
 		addComponentsToContainer();
 		this.setTitle("Add Job");
 		this.setVisible(true);
-		this.setBounds(10,10,500,800);
+		this.setBounds(10,10,500,550);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
@@ -78,22 +78,22 @@ public class AddJobFrame extends JFrame{
 
 
 	public void setLocationAndSize() {
-		lJobtitle.setBounds(30, 150, 100, 30);
-		lJobdescrip.setBounds(30, 200, 100, 30);
-		lCompanyname.setBounds(30, 250, 100, 30);
-		lLocation.setBounds(30, 300, 100, 30);
-		lKeyskill.setBounds(30,350,100,30);
-		lSalary.setBounds(30, 400, 100, 30);
+		lJobtitle.setBounds(30, 50, 100, 30);
+		lJobdescrip.setBounds(30, 100, 100, 30);
+		lCompanyname.setBounds(30, 150, 100, 30);
+		lLocation.setBounds(30, 200, 100, 30);
+		lKeyskill.setBounds(30,250,100,30);
+		lSalary.setBounds(30, 300, 100, 30);
 		
-		tJobtitle.setBounds(250, 150, 150, 30);
-		tJobdescrip.setBounds(250,200,150,30);
-		tCompanyname.setBounds(250, 250, 150, 30);
-		tLocation.setBounds(250,300,150,30);
-		tKeyskill.setBounds(250,350,150,30);
-		tSalary.setBounds(250, 400, 150, 30);
+		tJobtitle.setBounds(250, 50, 150, 30);
+		tJobdescrip.setBounds(250,100,150,30);
+		tCompanyname.setBounds(250, 150, 150, 30);
+		tLocation.setBounds(250,200,150,30);
+		tKeyskill.setBounds(250,250,150,30);
+		tSalary.setBounds(250, 300, 150, 30);
 		
 		
-		bSubmit.setBounds(100, 450, 100, 30);
+		bSubmit.setBounds(150, 370, 150, 30);
 	}
 	
 	public void addComponentsToContainer() {
@@ -113,3 +113,4 @@ public class AddJobFrame extends JFrame{
 		
 	}
 }
+	

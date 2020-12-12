@@ -22,12 +22,12 @@ public class ViewAllSkills extends JFrame
 	public ViewAllSkills()throws ClassNotFoundException, SQLException {
 		String[] columnNames = {"SKILL ID","SKILL NAME","SKILL DESCRIPTION","STATUS"};
 		skController=new SkillController();
-		frame = new JFrame("Employee Details");
-		frame.setResizable(false);
+		frame = new JFrame("Skill Details");
+		frame.setResizable(true);
 		frame.setSize(1000, 800);
 		frame.setVisible(true);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
 		DefaultTableModel model = new DefaultTableModel();
 		
@@ -43,7 +43,6 @@ public class ViewAllSkills extends JFrame
 		table.setSize(970, 727);
 		frame.getContentPane().add(table,BorderLayout.CENTER);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
         table.setFillsViewportHeight(true);
        
 		List<Skill> data= skController.getAllSkills();

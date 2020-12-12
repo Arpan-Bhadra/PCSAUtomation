@@ -136,7 +136,7 @@ public class PMEHome extends JFrame{
 		addComponentsToContainer();
 		this.setTitle("PME Home Screen");
 		this.setVisible(true);
-		this.setBounds(10,10,500,1600);
+		this.setBounds(10,10,500,600);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
@@ -147,15 +147,15 @@ public class PMEHome extends JFrame{
 	}
 
 	private void setLocationAndSize() {
-		lTitle.setBounds(100, 100, 300, 30);
-		bViewSkEmp.setBounds(50,150,300,30);
-		bViewAllSkill.setBounds(50,200,300,30);
-		bAddJob.setBounds(50,250,300,30);
-		bViewAllJobs.setBounds(50,300,300,30);
-		bViewSkJobs.setBounds(50,350,300,30);
-		bViewEmpApJob.setBounds(50,400,300,30);
-		bSetDeactiveJob.setBounds(50,450,300,30);
-		bLogout.setBounds(50,500,300,30);
+		lTitle.setBounds(185, 50, 300, 30);
+		bViewSkEmp.setBounds(100,100,300,30);
+		bViewAllSkill.setBounds(100,150,300,30);
+		bAddJob.setBounds(100,200,300,30);
+		bViewAllJobs.setBounds(100,250,300,30);
+		bViewSkJobs.setBounds(100,300,300,30);
+		bViewEmpApJob.setBounds(100,350,300,30);
+		bSetDeactiveJob.setBounds(100,400,300,30);
+		bLogout.setBounds(100,450,300,30);
 		
 	}
 
