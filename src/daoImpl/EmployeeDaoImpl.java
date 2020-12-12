@@ -44,6 +44,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		}
 		return emp;
 	}
+	
 	public Employee checkUser(String userId){
 		Employee emp=new Employee();
 		try{
@@ -72,6 +73,8 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		}
 		return emp;
 	}
+	
+	
 	@Override
 	public ArrayList<Employee> getAllEmployees() {
 		ArrayList<Employee> allEmpList=new ArrayList<Employee>(); //1
@@ -158,16 +161,10 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public void updateEmployee(Employee emp) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Password=? where empId=?");
+			PreparedStatement pst=conn.prepareStatement("update Employee set Role=? Password=? where empId=?");
 			pst.setString(1, emp.getPassword());
 			pst.setInt(2, emp.getEmployeeID());
 			int i=pst.executeUpdate();
-			if(i==1){
-				System.out.println("1 record updated...");
-			}
-			else {
-				System.out.println("updation failed...");
-			}
 		}
 		catch(SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -232,5 +229,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		}	
 		
 	}
+
+
 	
 }

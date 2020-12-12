@@ -13,7 +13,8 @@ import java.util.Vector;
 
 import javax.swing.JTextField;
 
-import com.mysql.cj.xdevapi.Statement;
+import com.mysql.*;
+import java.sql.*;
 
 import config.JDBCConnection;
 import controller.EmployeeController;
@@ -128,7 +129,7 @@ public ViewProfile() throws SQLException,ClassNotFoundException
 			
 			 Statement st = (Statement) conn.createStatement();
 
-	         ResultSet   rs = ((java.sql.Statement) st).executeQuery("select userId from Employee");
+	         ResultSet   rs = st.executeQuery("select userId from Employee");
 
 	            Vector v = new Vector();
 

@@ -44,7 +44,7 @@ public class LoginFrame extends JFrame{
 					lMessage.setText("You are not authorized user! Retry or Register!");
 				}
 				else {
-						if(emp.getRole().equals("HRA"))
+						if(emp.getGender().equals("HRA"))
 						{
 							try {
 								new HRAHome();
@@ -56,7 +56,7 @@ public class LoginFrame extends JFrame{
 								e.printStackTrace();
 							}
 						}
-						else if(emp.getRole().equals("EMP"))
+						else if(emp.getGender().equals("EMP"))
 						{
 							new EMPHome(emp);
 						}

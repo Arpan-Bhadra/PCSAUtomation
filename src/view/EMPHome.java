@@ -49,7 +49,7 @@ public class EMPHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				new UpdateProfile();
 				
 			}	
 		});
@@ -58,7 +58,7 @@ public class EMPHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				new UpdateProfile();
 				
 			}	
 		});
